@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                 docker images
+                 sh 'docker images'
             }
         }
         stage('Test') {
