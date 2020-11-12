@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                 docker run -dit -p 80:80 httpd
+                 docker ps-a
             }
         }
         stage('Test') {
