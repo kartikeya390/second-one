@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                 docker run -dit -p 80:80 httpd
                  docker ps-a
             }
         }
