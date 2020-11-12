@@ -8,8 +8,7 @@ pipeline {
 
                 script { 
 
-                    docker run -dit -p 80:80 httpd
-                    docker ps-a
+                    echo 'deploy'
                 }
 
             } 
