@@ -4,19 +4,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t kartikeya390/perl:Latest1 .'
-                
+                 sh 'docker build -t kartikeya390/perl:Latest1 .'
             }
         }
         stage('Test') {
             steps {
-                withCredentials([string(credentialsId: 'kartikeya390', variable: 'docker-paswd')]) {
-                sh "docker login -u kartikeya390 -p {$docker-paswd}"
-                }
-                }
+                echo 'Testing..'
+            }
+        }
         stage('Deploy') {
             steps {
-                sh 'docker push kartikeya390/perl'
+                echo 'Deploying....'
             }
         }
     }
