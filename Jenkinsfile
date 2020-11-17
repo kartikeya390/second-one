@@ -9,7 +9,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                withCredentials([string(credentialsId: 'kartikeya390', variable: 'docker-paswd')]) {
+                sh "docker login -u kartikeya390 -p {$docker-paswd}"
             }
         }
         stage('Deploy') {
