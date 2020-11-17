@@ -13,6 +13,7 @@ pipeline {
                 sh "docker login -u kartikeya390 -p {$docker-paswd}"
             }
         }
+      }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
