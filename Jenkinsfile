@@ -10,13 +10,13 @@ pipeline {
         stage('Test') {
             steps {
                 withCredentials([string(credentialsId: 'kartikeya390', variable: 'docker-paswd')]) {
-                sh "docker login --username kartikeya390 --password-stdin {$docker-paswd}"
+                sh "docker login --username kartikeya390 --password {$docker-paswd}"
             }
         }
       }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh 'docker push kartikeya390/jenkins-007:latest1'
             }
         }
     }
