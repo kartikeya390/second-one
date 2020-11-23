@@ -9,8 +9,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                withCredentials([string(credentialsId: 'kartikeya390', variable: 'docker-paswd')]) {
-                sh "docker login --username kartikeya390 --password {$docker-paswd}"
+                withCredentials([usernameColonPassword(credentialsId: 'Docker-user-pass', variable: 'Docker-user-passwd')]) {
+                 sh "docker login --username kartikeya390 --password-stdin {$docker-paswd}"
             }
         }
       }
